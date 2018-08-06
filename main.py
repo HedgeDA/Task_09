@@ -19,7 +19,7 @@ class User:
     def __str__(self):
         return self.url
 
-    def __mul__(self, other):
+    def __and__(self, other):
         result = list()
         for user_id in set(self.friends_get()).intersection(set(other.friends_get())):
             result.append(User(user_id))
@@ -55,7 +55,7 @@ def main():
 
     # получаем список общих друзей
     print('Список общих друзей:')
-    pprint(first_user * second_user)
+    pprint(first_user & second_user)
 
 
 main()
